@@ -95,7 +95,6 @@ def eliminar_estudiante():
             print()
 
 
-# Ingresar un dia y mostrar a los estudiantes que pueden salir ese dia
 def consultar_salida():
     # limpiador
     limpiador()
@@ -182,6 +181,4 @@ while switch:
             break
         else:
             respuesta_usuario = input("Ingrese una opción valida:\n")
-
-# TODO: PERSISTENCIA
 

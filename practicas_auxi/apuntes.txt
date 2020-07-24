@@ -1,0 +1,14 @@
+Informacion:
+	Clientes(Nombre, CI, monto, otros)
+	
+Menu:
+	Editar informacion (Nombres y CI (no editables))
+	Deshabilitar y habilitar clientes
+	Mostrar clientes habilitados
+	Mostrar clientes inhabilitados
+	Depositar y retira
+	Calcular millas
+
+
+
+CIFRAS, REDONDEO, ERRORES
