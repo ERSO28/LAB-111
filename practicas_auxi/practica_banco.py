@@ -90,6 +90,7 @@ def mostrar_clientes_inhab():
 
 
 def cambios_monto():
+    limpiar_consola()
     cliente_carnet_aux = input('Ingrese el carnet del cliente a modificar: ')
     while True:
         if cliente_carnet_aux in cliente_carnet:
@@ -115,13 +116,13 @@ def cambios_monto():
                     monto_aux = int(input('Ingrese el monto a depositar: '))
                     cliente_monto_bolivianos[indice] = cliente_monto_bolivianos[indice] + monto_aux
                     limpiar_consola()
-                    print("El monto total es: ", cliente_monto_bolivianos[indice])
+                    print("El monto total es: ", cliente_monto_bolivianos[indice], 'Bs.')
                     break
                 elif usuario_opcion_monto == '2':
                     monto_aux = int(input('Ingrese el monto a depositar: '))
                     cliente_monto_dolares[indice] = cliente_monto_dolares[indice] + monto_aux
                     limpiar_consola()
-                    print('El monto total es: ', cliente_monto_dolares[indice])
+                    print('El monto total es: ', cliente_monto_dolares[indice], '$')
                     break
                 elif usuario_opcion_monto == '3':
                     break
@@ -134,6 +135,7 @@ def cambios_monto():
 
 
 def calcular_millas():
+    limpiar_consola()
     cliente_carnet_aux = input('Introduzca el carnet del cliente a calcular: ')
     while True:
         if cliente_carnet_aux in cliente_carnet:
@@ -143,9 +145,12 @@ def calcular_millas():
                 if 0 < variable < 1:
                     limpiar_consola()
                     print("La cantidad de millas que tiene ahorrado es: ", cliente_monto_dolares[indice] * variable)
+                    print()
+                    print()
                     break
                 else:
                     variable = float(input('Opcion no valida. Intente de nuevo'))
+            break
         else:
             cliente_carnet_aux = input('Opcion invalida. Intente de nuevo: ')
 
@@ -159,18 +164,22 @@ def calcular_probabilidades():
             nombre = cliente_nombre[indice_2]
             apellido = cliente_apellido[indice_2]
             lista_contadores = []
-            contador = 0
+            # contador = 0
             for i in range(indice):
                 cliente_monto_bolivianos_aux = cliente_monto_bolivianos[i]
-                print(i)
-                while cliente_monto_bolivianos_aux > 1:
-                    contador += 1
+                while cliente_monto_bolivianos_aux > 99:
+                    # contador += 1
+                    # print(cliente_monto_bolivianos_aux)
                     cliente_monto_bolivianos_aux = cliente_monto_bolivianos_aux // 100
-                lista_contadores.append(contador)
+                    # print(cliente_monto_bolivianos_aux)
+                lista_contadores.append(cliente_monto_bolivianos_aux)
             total = sum(lista_contadores)
             probabilidad = (lista_contadores[indice_2] / total) * 100
+            # print(lista_contadores)
             limpiar_consola()
             print('La probabilidad del cliente ', nombre, apellido, ' es ', probabilidad, '%')
+            print()
+            print()
             break
 
 
@@ -227,6 +236,7 @@ cliente_monto_dolares = [900, 100]
 
 
 while True:
+    #limpiar_consola()
     titulo()
     menu()
     usuario_opcion = input('Introduzca la opcion que desea realizar: ')
